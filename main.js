@@ -57,9 +57,7 @@ const locationMap = {};
             date: `${date} ${time}`,
             location: { str: locationStr, url: locationUrl }
           };
-        }),
-      ownTeamName,
-      locationMap
+        })
     );
     upcomingEvents.push(...pageEvents);
     // break;
