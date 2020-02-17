@@ -5,5 +5,10 @@ This project uses Puppeteer to automate the process of logging in to Playmore's 
 ## Usage
 
 ```sh
-PM_USERNAME=username PM_PASSWORD=password node main.js
+PM_USERNAME=username PM_PASSWORD=password CALENDAR_ID=calendarid node main.js
 ```
+
+## To Do
+
+- Check if event already exists before adding it to calendar
+- Account for daylight savings

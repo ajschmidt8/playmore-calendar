@@ -18,7 +18,7 @@ module.exports.getEvents = async () => {
   await page.goto(`${baseUrl}/dashboard`);
   await page.type("#login_username", process.env.PM_USERNAME);
   await page.type("#login_password", process.env.PM_PASSWORD);
-  await page.click('[data-id="login-submit"]');
+  await page.keyboard.press("Enter");
   await page.waitForNavigation();
   const teams = await page.$$eval(
     "#ga-members-table tr td:nth-child(2) > strong a",
@@ -44,7 +44,8 @@ module.exports.getEvents = async () => {
         events.map(event => {
           const date = event
             .querySelector(".sched-start-date .date")
-            .innerText.trim();
+            .innerText.trim()
+            .split(", ")[1];
           const time = event
             .querySelector(".sched-start-date .time")
             .innerText.trim();
@@ -58,7 +59,7 @@ module.exports.getEvents = async () => {
 
           return {
             summary: `vs. ${opponent}`,
-            date: `${date} ${time}`,
+            date: new Date(`${date} 2020 ${time} EST`).toISOString(),
             venue: { name: venueStr, path: venuePath }
           };
         })
