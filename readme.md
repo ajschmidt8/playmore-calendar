@@ -12,3 +12,5 @@ PM_USERNAME=username PM_PASSWORD=password CALENDAR_ID=calendarid node main.js
 
 - Check if event already exists before adding it to calendar
 - Account for daylight savings
+
+some random changes
